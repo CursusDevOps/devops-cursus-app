@@ -1,0 +1,8 @@
+venv/
+results/
+*.html
+*.xml
+*.png
+playwright-log.txt
+
+
