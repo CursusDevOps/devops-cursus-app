@@ -12,8 +12,8 @@ pipeline {
             steps {
                 sshagent(['debian-server-ssh']) {
                     echo 'We loggen in op de server om de Test-omgeving bij te werken...'
-                    // Jenkins navigeert naar de test-map en overschrijft de index.html met de code uit GitHub
-                    sh 'ssh -o StrictHostKeyChecking=no cursus@host.containers.internal "echo \\"<h1>Geüpdatet door Jenkins! Dit is build #${BUILD_NUMBER}</h1>\\" > ~/otap/test/app/index.html"'
+                    // We gebruiken het gecontroleerde gateway IP 10.89.2.1
+                    sh 'ssh -o StrictHostKeyChecking=no cursus@10.89.2.1 "echo \\"<h1>Geüpdatet door Jenkins! Dit is build #${BUILD_NUMBER}</h1>\\" > ~/otap/test/app/index.html"'
                 }
             }
         }
