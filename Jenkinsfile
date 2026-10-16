@@ -13,7 +13,7 @@ pipeline {
                 sshagent(['debian-server-ssh']) {
                     echo 'We loggen in op de server om de Test-omgeving bij te werken...'
                     // We gebruiken het stabiele hoofd IP van de server
-                    sh 'ssh -o StrictHostKeyChecking=no cursus@192.168.1.68 "echo \\"<h1>Geüpdatet door Jenkins! Dit is build #${BUILD_NUMBER}</h1>\\" > ~/otap/test/app/index.html"'
+                    sh 'ssh -o StrictHostKeyChecking=no cursus@192.168.1.68 "echo \\"<h1>Bijgewerkt door Jenkins! Dit is build #${BUILD_NUMBER}</h1>\\" > ~/otap/test/app/index.html"'
                 }
             }
         }
