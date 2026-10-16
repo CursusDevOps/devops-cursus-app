@@ -2,15 +2,14 @@
 Library    Browser
 
 *** Test Cases ***
-Controleer Welkomsttekst Op Ontwikkelomgeving
-    # 1. Open een nieuwe Chromium browser (headless=False zodat we hem zien openspringen!)
-    New Browser    browser=chromium    headless=False
+Controleer Of Website Correct Draait
+    # Open de browser (headless voor CI/CD pipelines)
+    New Browser    browser=chromium    headless=True
     
-    # 2. Surf naar jouw Ontwikkelomgeving
-    New Page       http://192.168.1.68:8081
+    # We gebruiken de dynamische variabele ${URL} uit de TOML file
+    New Page       ${URL}
     
-    # 3. Controleer of de juiste H1-koptekst op de pagina staat
-    Get Text       h1    ==    Welkom op de ONTWERP-omgeving (O) van de DevOps cursus!
-    Sleep    10
-    # 4. Maak voor de zekerheid een screenshot van het resultaat
+    # Controleer of de pagina de juiste omgevingsnaam bevat
+    Get Text       h1    contains    ${OMGEVING}
+    
     Take Screenshot
