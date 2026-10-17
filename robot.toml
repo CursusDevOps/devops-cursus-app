@@ -1,0 +1,13 @@
+# Standaardinstellingen voor alle tests
+[variables]
+BROWSER = "chromium"
+
+# Profiel voor Ontwikkeling (O)
+[profiles.ont.variables]
+URL = "http://192.168.1.68:8081"
+OMGEVING = "Ontwikkeling"
+
+# Profiel voor Test (T)
+[profiles.test.variables]
+URL = "http://192.168.1.68:8082"
+OMGEVING = "Test"

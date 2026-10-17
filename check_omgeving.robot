@@ -8,7 +8,10 @@ Controleer Of Website Correct Draait
     
     # We gebruiken de dynamische variabele ${URL} uit de TOML file
     New Page       ${URL}
-    
+    Log To Console    ${URL}
+    ${h1}    Get Text    h1
+    Log To Console    ${h1}
+        
     # Controleer of de pagina de juiste omgevingsnaam bevat
     Get Text       h1    contains    ${OMGEVING}
     
